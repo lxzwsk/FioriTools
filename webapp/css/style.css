@@ -1,0 +1,12 @@
+/* Enter your custom styles here */
+.matchingItemLink{
+	margin:0.15rem;
+	padding:0.15rem;
+}
+.zfUp{
+	color:red;
+}
+
+.zfDown{
+	color:green;
+}

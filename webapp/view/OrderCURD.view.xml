@@ -1,0 +1,78 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	controllerName="ZHELI_UI5_CONTROLS.controller.OrderCURD" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="SaleOrder">
+		<content>
+			<f:Form id="frmHeader" width="100%" editable="false">
+				<f:title>
+					<core:Title text="SaleOrder"></core:Title>
+				</f:title>
+				<f:layout>
+					<f:ColumnLayout columnsM="2" columnsL="3" columnsXL="4"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="orderno">
+								<f:fields>
+									<Input value="{/orderno}" id="orderno" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="customer">
+								<f:fields>
+									<Input value="{/customer}" id="customer" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="descript">
+								<f:fields>
+									<Input value="{/descript}" id="descript" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="createData">
+								<f:fields>
+									<Input value="{/createData}" id="createData" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="createTime">
+								<f:fields>
+									<Input value="{/createTime}" id="createTime" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="vipno">
+								<f:fields>
+									<Input value="{/vipno}" id="vipno" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="discount">
+								<f:fields>
+									<Input value="{/discount}" id="discount" width="150px"></Input>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<TabContainer id="tabContainer1" showAddNewButton="true">
+				<items>
+					<TabContainerItem key="No1" name="No1">
+						<content>
+							<Label text="No1"></Label>
+						</content>
+					</TabContainerItem>
+					<TabContainerItem key="No2"  name="No2">
+						<content>
+							<Label text="No2"></Label>
+						</content>
+					</TabContainerItem>
+				</items>
+			</TabContainer>
+		</content>
+	</Page>
+</mvc:View>

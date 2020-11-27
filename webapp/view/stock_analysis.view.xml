@@ -1,0 +1,22 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ZHELI_UI5_CONTROLS.controller.stock_analysis"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+			<HBox>
+				<Input visible="false" value="http://money.finance.sina.com.cn/quotes_service/api/json_v2.php/CN_MarketData.getKLineData" id="iUrl"></Input>
+				<Input id="iStockType" value="sz" width="50px"></Input>
+				<Input id="iStockStart" value="300001"></Input>
+				<Label text="到"></Label>
+				<Input id="iStockEnd" value="300010"></Input>
+				<Label text="分钟间隔"></Label>
+				<Input value="60" width="50px" id="iScale"></Input>
+				<Label text="均值"></Label>
+				<Input value="5" width="50px" id="iMa"></Input>
+				<Label text="数据记录"></Label>
+				<Input value="6" width="50px" id="iLen"></Input>
+				<Button text="分析" id="btnAnalysis" press="onAnalysisPress"></Button>
+			</HBox>
+			<TextArea cols="100" rows="30" id="tContent"></TextArea>
+		</content>
+	</Page>
+</mvc:View>

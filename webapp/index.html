@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta charset="UTF-8">
+
+		<title>ZHELI_UI5_CONTROLS</title>
+		<!--https://sapui5.hana.ondemand.com/resources/sap-ui-core.js-->
+		<!--../../resources/sap-ui-core.js-->
+		
+	<script type="text/javascript">
+		window["sap-ushell-config"] = {
+			defaultRenderer : "fiori2",
+			renderers: {
+				fiori2: {
+					componentData: {
+						config: {
+							search: "hidden"
+						}
+					}
+				}
+			},
+			applications: {
+				"ZHELI_UI5_CONTROLS": {
+					additionalInformation: "SAPUI5.Component=ZHELI_UI5_CONTROLS",
+					applicationType: "URL",
+					url: "../"
+				}
+			}
+		};
+	</script>
+	
+		<!--<script src="../../test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>-->
+		
+		<script id="sap-ui-bootstrap"
+			src="../../resources/sap-ui-core.js"
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_belize"
+			data-sap-ui-compatVersion="edge"
+			data-sap-ui-bindingSyntax="complex"
+			data-sap-ui-preload="async"
+			data-sap-ui-xx-waitForTheme="true"
+			data-sap-ui-frameOptions='allow'
+			data-sap-ui-resourceroots='{"ZHELI_UI5_CONTROLS": ""}'>
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<script>
+			sap.ui.getCore().attachInit(function() {
+			
+			/* sap.ushell.Container.createRenderer().placeAt("content");*/
+			
+				
+				new sap.m.Shell({
+							app: new sap.ui.core.ComponentContainer({
+								height : "100%",
+								width:"100%",
+								name : "ZHELI_UI5_CONTROLS"
+							})
+						}).placeAt("content");
+						
+						
+				/*sap.ui.require([
+						"ZHELI_UI5_CONTROLS/localService/mockserver"
+					],function(mockServer){
+						//mockServer.init();	
+						new sap.m.Shell({
+							app: new sap.ui.core.ComponentContainer({
+								height : "100%",
+								width:"100%",
+								name : "ZHELI_UI5_CONTROLS"
+							})
+						}).placeAt("content");
+					});
+					*/
+				
+			});
+		</script>
+	</head>
+
+	<body class="sapUiBody" id="content">
+	</body>
+
+</html>

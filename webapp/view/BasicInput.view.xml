@@ -1,0 +1,106 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:fb="sap.ui.comp.filterbar" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:cust="ZHELI_UI5_CONTROLS.Control" controllerName="ZHELI_UI5_CONTROLS.controller.BasicInput"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="{i18n>BasicInput}">
+		<content>
+			<Text text="this is a basic input page"></Text>
+			<DatePicker id="DP3" enabled="false"></DatePicker>
+			<Button text="Enabled" press="onBtn1Press" id="btn1"></Button>
+			<Link text="baidu" href="#Account" tooltip="baidu"></Link>
+			<VBox>
+				<IconTabBar id="itbHeader" showOverflowSelectList="true" enableTabReordering="true" tabDensityMode="Compact">
+					<items>
+						<IconTabFilter id="filter1" text="general">
+							<!--
+							<l:VerticalLayout width="100%" class="gridWrapper">
+								<l:Grid containerQuery="true" defaultSpan="L2 M2 S2">
+									<Label text="1234"></Label><Input></Input>
+									<Label text="5678"></Label><Input></Input>
+									<Label text="9101112"></Label><Input></Input>
+									<Label text="abcd"></Label><Input></Input>
+								</l:Grid>
+							</l:VerticalLayout>
+							-->
+							<f:SimpleForm editable="true" columnsM="2" columnsL="3" columnsXL="4" layout="ColumnLayout" >
+								<f:content>
+									<Label text="Web"/>
+									<Input value="{Url}" type="Url"/>
+									
+									<Label text="Twitter"/>
+									<Input value="{Twitter}"/>
+									<Label text="Email"/>
+									<Input value="{Email}" type="Email"/>
+									<Input ></Input>
+									<Label text="Tel."/>
+									<Input value="{Tel}" type="Tel"/>
+									<Label text="SMS"/>
+									<Input value="{Sms}" type="Tel"/>
+									<Label text="Mobile"/>
+									<Input value="{Mobile}" type="Tel"/>
+									<Label text="Pager"/>
+									<Input value="{Pager}" type="Tel"/>
+									<Label text="Fax"/>
+									<Input value="{Fax}" type="Tel"/>
+								</f:content>
+							</f:SimpleForm>
+						</IconTabFilter>
+						<IconTabFilter id="filter2" text="other"></IconTabFilter>
+					</items>
+				</IconTabBar>
+			</VBox>
+			<VBox>
+				<Input value="abc" width="150px" showValueHelp="true" valueHelpRequest="onValueHelpRequest"></Input>
+				<cust:MyFilterBar id="filterbar" reset="onReset" search="onSearch" useToolbar="false" showGoOnFB="true" fieldName="Field1">
+					<cust:filterItems>
+						<fb:FilterItem name="A" label="Name">
+							<fb:control>
+								<Input value="abc" id="Name.Input"></Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="B" label="DESCRIPTION">
+							<fb:control>
+								<Input value="desc" id="DESCRIPTION.Input"></Input>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="c" label="MultiInput">
+							<fb:control>
+								<MultiInput id="multiInput1">
+									<tokens>
+										<Token key="row1" text="row1"></Token>
+										<Token key="row2" text="row2"></Token>
+									</tokens>
+								</MultiInput>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="d" label="Select">
+							<fb:control>
+								<Select>
+									<core:Item key="a" text="a"></core:Item>
+									<core:Item key="b" text="b"></core:Item>
+								</Select>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="e" label="combobox">
+							<fb:control>
+								<ComboBox>
+									<core:Item key="a" text="a"></core:Item>
+									<core:Item key="b" text="b"></core:Item>
+								</ComboBox>
+							</fb:control>
+						</fb:FilterItem>
+						<fb:FilterItem name="f" label="multiCombobox">
+							<fb:control>
+								<MultiComboBox>
+									<core:Item key="a" text="a"></core:Item>
+									<core:Item key="b" text="b"></core:Item>
+								</MultiComboBox>
+							</fb:control>
+						</fb:FilterItem>
+					</cust:filterItems>
+				</cust:MyFilterBar>
+				<Button id="btnGetFilterData" text="GetFilterData" press="onGetFilterData"></Button>
+			</VBox>
+			
+		</content>
+	</Page>
+</mvc:View>

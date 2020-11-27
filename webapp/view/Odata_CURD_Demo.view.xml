@@ -1,0 +1,1860 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:table="sap.ui.table"
+	controllerName="ZHELI_UI5_CONTROLS.controller.Odata_CURD_Demo" xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Title">
+				<content>
+					<Toolbar active="true">
+						<Label text="METHOD_ID"></Label>
+						<Input id="iMethodId" width="180px" placeholder="please enter methodid" value="SF001" visible="false"></Input>
+						<ComboBox id="cboxMethodId" items="{OData_Demo>/methodSet}" width="300px">
+							<items>
+								<core:Item key="{OData_Demo>MethodId}"
+									text="{parts: [ {path:'OData_Demo>MethodId'}, {path:'OData_Demo>Descm'} ],formatter:'.methodFormatter'}"></core:Item>
+							</items>
+						</ComboBox>
+						<Label text="显示"></Label>
+						<Input id="iTop" type="Number" width="50px" value="10"></Input>
+						<Label text="条"></Label>
+						<Button icon="sap-icon://search" text="Select" press="onSelect"></Button>
+						<Button icon="sap-icon://save" text="Save" press="onSave"></Button>
+						<Button icon="sap-icon://call" text="call Function" press="onCallFunction"></Button>
+						<Button icon="sap-icon://refresh" text="Refresh" press="onRefresh" visible="false"></Button>
+						<Button text="Disable" press="onDisable" visible="false"></Button>
+					</Toolbar>
+				</content>
+				<IconTabBar showOverflowSelectList="true" enableTabReordering="true" tabDensityMode="Compact">
+					<items>
+						<IconTabFilter text="Table Mode">
+							<table:Table rows="{ICADOCM>/}" title="ICADOCM" selectionMode="MultiToggle" visibleRowCount="19">
+								<table:columns>
+									<table:Column width="120px">
+										<Label text="METHOD_ID"/>
+										<table:template>
+											<Text text="{ICADOCM>METHOD_ID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DOCNR"/>
+										<table:template>
+											<Text text="{ICADOCM>DOCNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DOCLN"/>
+										<table:template>
+											<Text text="{ICADOCM>DOCLN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GRREF"/>
+										<table:template>
+											<Text text="{ICADOCM>GRREF}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DS_NAME"/>
+										<table:template>
+											<Text text="{ICADOCM>DS_NAME}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RULE_ID"/>
+										<table:template>
+											<Text text="{ICADOCM>RULE_ID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SLICE"/>
+										<table:template>
+											<Text text="{ICADOCM>SLICE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PSTAT"/>
+										<table:template>
+											<Text text="{ICADOCM>PSTAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CSTAT"/>
+										<table:template>
+											<Text text="{ICADOCM>CSTAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DUE_DATE"/>
+										<table:template>
+											<Text text="{ICADOCM>DUE_DATE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RYEAR"/>
+										<table:template>
+											<Text text="{ICADOCM>RYEAR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RLDNR"/>
+										<table:template>
+											<Text text="{ICADOCM>RLDNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBUKRS"/>
+										<table:template>
+											<Text text="{ICADOCM>RBUKRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GJAHR"/>
+										<table:template>
+											<Text text="{ICADOCM>GJAHR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REF_BELNR"/>
+										<table:template>
+											<Text text="{ICADOCM>REF_BELNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REF_DOCLN"/>
+										<table:template>
+											<Text text="{ICADOCM>REF_DOCLN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DOCNR_LD"/>
+										<table:template>
+											<Text text="{ICADOCM>DOCNR_LD}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RRCTY"/>
+										<table:template>
+											<Text text="{ICADOCM>RRCTY}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RCOMP"/>
+										<table:template>
+											<Text text="{ICADOCM>RCOMP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RACCT"/>
+										<table:template>
+											<Text text="{ICADOCM>RACCT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CLEARING_STATUS"/>
+										<table:template>
+											<Text text="{ICADOCM>CLEARING_STATUS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LKTOPL"/>
+										<table:template>
+											<Text text="{ICADOCM>LKTOPL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LRACCT"/>
+										<table:template>
+											<Text text="{ICADOCM>LRACCT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RDIMEN"/>
+										<table:template>
+											<Text text="{ICADOCM>RDIMEN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RVERS"/>
+										<table:template>
+											<Text text="{ICADOCM>RVERS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DOCCT"/>
+										<table:template>
+											<Text text="{ICADOCM>DOCCT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBUNIT"/>
+										<table:template>
+											<Text text="{ICADOCM>RBUNIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RITCLG"/>
+										<table:template>
+											<Text text="{ICADOCM>RITCLG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RITEM"/>
+										<table:template>
+											<Text text="{ICADOCM>RITEM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBUPTR"/>
+										<table:template>
+											<Text text="{ICADOCM>RBUPTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RCONGR"/>
+										<table:template>
+											<Text text="{ICADOCM>RCONGR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SITYP"/>
+										<table:template>
+											<Text text="{ICADOCM>SITYP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SUBIT"/>
+										<table:template>
+											<Text text="{ICADOCM>SUBIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PLEVL"/>
+										<table:template>
+											<Text text="{ICADOCM>PLEVL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RPFLG"/>
+										<table:template>
+											<Text text="{ICADOCM>RPFLG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RTFLG"/>
+										<table:template>
+											<Text text="{ICADOCM>RTFLG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DOCTY"/>
+										<table:template>
+											<Text text="{ICADOCM>DOCTY}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ROBUKRS"/>
+										<table:template>
+											<Text text="{ICADOCM>ROBUKRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RMVCT"/>
+										<table:template>
+											<Text text="{ICADOCM>RMVCT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VORGN"/>
+										<table:template>
+											<Text text="{ICADOCM>VORGN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VRGNG"/>
+										<table:template>
+											<Text text="{ICADOCM>VRGNG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BTTYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>BTTYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWTYP"/>
+										<table:template>
+											<Text text="{ICADOCM>AWTYP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWSYS"/>
+										<table:template>
+											<Text text="{ICADOCM>AWSYS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWORG"/>
+										<table:template>
+											<Text text="{ICADOCM>AWORG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWREF"/>
+										<table:template>
+											<Text text="{ICADOCM>AWREF}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWITEM"/>
+										<table:template>
+											<Text text="{ICADOCM>AWITEM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWITGRP"/>
+										<table:template>
+											<Text text="{ICADOCM>AWITGRP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SUBTA"/>
+										<table:template>
+											<Text text="{ICADOCM>SUBTA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XREVERSING"/>
+										<table:template>
+											<Text text="{ICADOCM>XREVERSING}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XREVERSED"/>
+										<table:template>
+											<Text text="{ICADOCM>XREVERSED}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XTRUEREV"/>
+										<table:template>
+											<Text text="{ICADOCM>XTRUEREV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWTYP_REV"/>
+										<table:template>
+											<Text text="{ICADOCM>AWTYP_REV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWORG_REV"/>
+										<table:template>
+											<Text text="{ICADOCM>AWORG_REV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AWREF_REV"/>
+										<table:template>
+											<Text text="{ICADOCM>AWREF_REV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SUBTA_REV"/>
+										<table:template>
+											<Text text="{ICADOCM>SUBTA_REV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XSETTLING"/>
+										<table:template>
+											<Text text="{ICADOCM>XSETTLING}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XSETTLED"/>
+										<table:template>
+											<Text text="{ICADOCM>XSETTLED}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWTYP"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWTYP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWSYS"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWSYS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWORG"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWORG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWREF"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWREF}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWITEM"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWITEM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_SUBTA"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_SUBTA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_AWMULT"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_AWMULT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_BUKRS"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_BUKRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_GJAHR"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_GJAHR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_BELNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_BELNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PREC_DOCLN"/>
+										<table:template>
+											<Text text="{ICADOCM>PREC_DOCLN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XSECONDARY"/>
+										<table:template>
+											<Text text="{ICADOCM>XSECONDARY}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CLOSING_RUN_ID"/>
+										<table:template>
+											<Text text="{ICADOCM>CLOSING_RUN_ID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWTYP"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWTYP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWSYS"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWSYS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWORG"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWORG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWREF"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWREF}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWITEM"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWITEM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SRC_AWSUBIT"/>
+										<table:template>
+											<Text text="{ICADOCM>SRC_AWSUBIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XCOMMITMENT"/>
+										<table:template>
+											<Text text="{ICADOCM>XCOMMITMENT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OBS_REASON"/>
+										<table:template>
+											<Text text="{ICADOCM>OBS_REASON}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RTCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RTCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RWCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RWCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RHCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RHCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RKCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RKCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ROCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>ROCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RVCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RVCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RBCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RCCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RCCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RDCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RDCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RECUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RECUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RFCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RFCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RGCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RGCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RCO_OCUR"/>
+										<table:template>
+											<Text text="{ICADOCM>RCO_OCUR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RUNIT"/>
+										<table:template>
+											<Text text="{ICADOCM>RUNIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RVUNIT"/>
+										<table:template>
+											<Text text="{ICADOCM>RVUNIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RRUNIT"/>
+										<table:template>
+											<Text text="{ICADOCM>RRUNIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RIUNIT"/>
+										<table:template>
+											<Text text="{ICADOCM>RIUNIT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUNIT1"/>
+										<table:template>
+											<Text text="{ICADOCM>QUNIT1}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUNIT2"/>
+										<table:template>
+											<Text text="{ICADOCM>QUNIT2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUNIT3"/>
+										<table:template>
+											<Text text="{ICADOCM>QUNIT3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CO_MEINH"/>
+										<table:template>
+											<Text text="{ICADOCM>CO_MEINH}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RCNTR"/>
+										<table:template>
+											<Text text="{ICADOCM>RCNTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PRCTR"/>
+										<table:template>
+											<Text text="{ICADOCM>PRCTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RFAREA"/>
+										<table:template>
+											<Text text="{ICADOCM>RFAREA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBUSA"/>
+										<table:template>
+											<Text text="{ICADOCM>RBUSA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KOKRS"/>
+										<table:template>
+											<Text text="{ICADOCM>KOKRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SEGMENT"/>
+										<table:template>
+											<Text text="{ICADOCM>SEGMENT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SCNTR"/>
+										<table:template>
+											<Text text="{ICADOCM>SCNTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PPRCTR"/>
+										<table:template>
+											<Text text="{ICADOCM>PPRCTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SFAREA"/>
+										<table:template>
+											<Text text="{ICADOCM>SFAREA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SBUSA"/>
+										<table:template>
+											<Text text="{ICADOCM>SBUSA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RASSC"/>
+										<table:template>
+											<Text text="{ICADOCM>RASSC}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PSEGMENT"/>
+										<table:template>
+											<Text text="{ICADOCM>PSEGMENT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="TSL"/>
+										<table:template>
+											<Text text="{ICADOCM>TSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="WSL"/>
+										<table:template>
+											<Text text="{ICADOCM>WSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="WSL2"/>
+										<table:template>
+											<Text text="{ICADOCM>WSL2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="WSL3"/>
+										<table:template>
+											<Text text="{ICADOCM>WSL3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSL"/>
+										<table:template>
+											<Text text="{ICADOCM>HSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSL"/>
+										<table:template>
+											<Text text="{ICADOCM>KSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSL"/>
+										<table:template>
+											<Text text="{ICADOCM>OSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSL"/>
+										<table:template>
+											<Text text="{ICADOCM>VSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BSL"/>
+										<table:template>
+											<Text text="{ICADOCM>BSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CSL"/>
+										<table:template>
+											<Text text="{ICADOCM>CSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DSL"/>
+										<table:template>
+											<Text text="{ICADOCM>DSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ESL"/>
+										<table:template>
+											<Text text="{ICADOCM>ESL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FSL"/>
+										<table:template>
+											<Text text="{ICADOCM>FSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GSL"/>
+										<table:template>
+											<Text text="{ICADOCM>GSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KFSL"/>
+										<table:template>
+											<Text text="{ICADOCM>KFSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KFSL2"/>
+										<table:template>
+											<Text text="{ICADOCM>KFSL2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KFSL3"/>
+										<table:template>
+											<Text text="{ICADOCM>KFSL3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PSL"/>
+										<table:template>
+											<Text text="{ICADOCM>PSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PSL2"/>
+										<table:template>
+											<Text text="{ICADOCM>PSL2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PSL3"/>
+										<table:template>
+											<Text text="{ICADOCM>PSL3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PFSL"/>
+										<table:template>
+											<Text text="{ICADOCM>PFSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PFSL2"/>
+										<table:template>
+											<Text text="{ICADOCM>PFSL2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PFSL3"/>
+										<table:template>
+											<Text text="{ICADOCM>PFSL3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CO_OSL"/>
+										<table:template>
+											<Text text="{ICADOCM>CO_OSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>HSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>KSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>OSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>VSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>BSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>CSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>DSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ESLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>ESLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>FSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GSLALT"/>
+										<table:template>
+											<Text text="{ICADOCM>GSLALT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>HSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>KSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>OSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>VSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>BSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>CSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>DSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ESLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>ESLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>FSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GSLEXT"/>
+										<table:template>
+											<Text text="{ICADOCM>GSLEXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HVKWRT"/>
+										<table:template>
+											<Text text="{ICADOCM>HVKWRT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MSL"/>
+										<table:template>
+											<Text text="{ICADOCM>MSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MFSL"/>
+										<table:template>
+											<Text text="{ICADOCM>MFSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VMSL"/>
+										<table:template>
+											<Text text="{ICADOCM>VMSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VMFSL"/>
+										<table:template>
+											<Text text="{ICADOCM>VMFSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RMSL"/>
+										<table:template>
+											<Text text="{ICADOCM>RMSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUANT1"/>
+										<table:template>
+											<Text text="{ICADOCM>QUANT1}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUANT2"/>
+										<table:template>
+											<Text text="{ICADOCM>QUANT2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="QUANT3"/>
+										<table:template>
+											<Text text="{ICADOCM>QUANT3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CO_MEGBTR"/>
+										<table:template>
+											<Text text="{ICADOCM>CO_MEGBTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="CO_MEFBTR"/>
+										<table:template>
+											<Text text="{ICADOCM>CO_MEFBTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSALK3"/>
+										<table:template>
+											<Text text="{ICADOCM>HSALK3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSALK3"/>
+										<table:template>
+											<Text text="{ICADOCM>KSALK3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSALK3"/>
+										<table:template>
+											<Text text="{ICADOCM>OSALK3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSALK3"/>
+										<table:template>
+											<Text text="{ICADOCM>VSALK3}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSALKV"/>
+										<table:template>
+											<Text text="{ICADOCM>HSALKV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSALKV"/>
+										<table:template>
+											<Text text="{ICADOCM>KSALKV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSALKV"/>
+										<table:template>
+											<Text text="{ICADOCM>OSALKV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSALKV"/>
+										<table:template>
+											<Text text="{ICADOCM>VSALKV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HPVPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>HPVPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KPVPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>KPVPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OPVPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>OPVPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VPVPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>VPVPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HSTPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>HSTPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KSTPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>KSTPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="OSTPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>OSTPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VSTPRS"/>
+										<table:template>
+											<Text text="{ICADOCM>VSTPRS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HVKSAL"/>
+										<table:template>
+											<Text text="{ICADOCM>HVKSAL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LBKUM"/>
+										<table:template>
+											<Text text="{ICADOCM>LBKUM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DRCRK"/>
+										<table:template>
+											<Text text="{ICADOCM>DRCRK}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="POPER"/>
+										<table:template>
+											<Text text="{ICADOCM>POPER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PERIV"/>
+										<table:template>
+											<Text text="{ICADOCM>PERIV}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FISCYEARPER"/>
+										<table:template>
+											<Text text="{ICADOCM>FISCYEARPER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BUDAT"/>
+										<table:template>
+											<Text text="{ICADOCM>BUDAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BLDAT"/>
+										<table:template>
+											<Text text="{ICADOCM>BLDAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BLART"/>
+										<table:template>
+											<Text text="{ICADOCM>BLART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BUZEI"/>
+										<table:template>
+											<Text text="{ICADOCM>BUZEI}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ZUONR"/>
+										<table:template>
+											<Text text="{ICADOCM>ZUONR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BSCHL"/>
+										<table:template>
+											<Text text="{ICADOCM>BSCHL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BSTAT"/>
+										<table:template>
+											<Text text="{ICADOCM>BSTAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LINETYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>LINETYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KTOSL"/>
+										<table:template>
+											<Text text="{ICADOCM>KTOSL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SLALITTYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>SLALITTYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XSPLITMOD"/>
+										<table:template>
+											<Text text="{ICADOCM>XSPLITMOD}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="USNAM"/>
+										<table:template>
+											<Text text="{ICADOCM>USNAM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="TIMESTAMP"/>
+										<table:template>
+											<Text text="{ICADOCM>TIMESTAMP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="EPRCTR"/>
+										<table:template>
+											<Text text="{ICADOCM>EPRCTR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RHOART"/>
+										<table:template>
+											<Text text="{ICADOCM>RHOART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="GLACCOUNT_TYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>GLACCOUNT_TYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KTOPL"/>
+										<table:template>
+											<Text text="{ICADOCM>KTOPL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LOKKT"/>
+										<table:template>
+											<Text text="{ICADOCM>LOKKT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KTOP2"/>
+										<table:template>
+											<Text text="{ICADOCM>KTOP2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REBZG"/>
+										<table:template>
+											<Text text="{ICADOCM>REBZG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REBZJ"/>
+										<table:template>
+											<Text text="{ICADOCM>REBZJ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REBZZ"/>
+										<table:template>
+											<Text text="{ICADOCM>REBZZ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="REBZT"/>
+										<table:template>
+											<Text text="{ICADOCM>REBZT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RBEST"/>
+										<table:template>
+											<Text text="{ICADOCM>RBEST}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="EBELN"/>
+										<table:template>
+											<Text text="{ICADOCM>EBELN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="EBELP"/>
+										<table:template>
+											<Text text="{ICADOCM>EBELP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ZEKKN"/>
+										<table:template>
+											<Text text="{ICADOCM>ZEKKN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SGTXT"/>
+										<table:template>
+											<Text text="{ICADOCM>SGTXT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KDAUF"/>
+										<table:template>
+											<Text text="{ICADOCM>KDAUF}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KDPOS"/>
+										<table:template>
+											<Text text="{ICADOCM>KDPOS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MATNR"/>
+										<table:template>
+											<Text text="{ICADOCM>MATNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="WERKS"/>
+										<table:template>
+											<Text text="{ICADOCM>WERKS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LIFNR"/>
+										<table:template>
+											<Text text="{ICADOCM>LIFNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KUNNR"/>
+										<table:template>
+											<Text text="{ICADOCM>KUNNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FBUDA"/>
+										<table:template>
+											<Text text="{ICADOCM>FBUDA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="COCO_NUM"/>
+										<table:template>
+											<Text text="{ICADOCM>COCO_NUM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="WWERT"/>
+										<table:template>
+											<Text text="{ICADOCM>WWERT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KOART"/>
+										<table:template>
+											<Text text="{ICADOCM>KOART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="UMSKZ"/>
+										<table:template>
+											<Text text="{ICADOCM>UMSKZ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MWSKZ"/>
+										<table:template>
+											<Text text="{ICADOCM>MWSKZ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HBKID"/>
+										<table:template>
+											<Text text="{ICADOCM>HBKID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="HKTID"/>
+										<table:template>
+											<Text text="{ICADOCM>HKTID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VALUT"/>
+										<table:template>
+											<Text text="{ICADOCM>VALUT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XOPVW"/>
+										<table:template>
+											<Text text="{ICADOCM>XOPVW}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUGDT"/>
+										<table:template>
+											<Text text="{ICADOCM>AUGDT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUGBL"/>
+										<table:template>
+											<Text text="{ICADOCM>AUGBL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUGGJ"/>
+										<table:template>
+											<Text text="{ICADOCM>AUGGJ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AFABE"/>
+										<table:template>
+											<Text text="{ICADOCM>AFABE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANLN1"/>
+										<table:template>
+											<Text text="{ICADOCM>ANLN1}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANLN2"/>
+										<table:template>
+											<Text text="{ICADOCM>ANLN2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BZDAT"/>
+										<table:template>
+											<Text text="{ICADOCM>BZDAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANBWA"/>
+										<table:template>
+											<Text text="{ICADOCM>ANBWA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MOVCAT"/>
+										<table:template>
+											<Text text="{ICADOCM>MOVCAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="DEPR_PERIOD"/>
+										<table:template>
+											<Text text="{ICADOCM>DEPR_PERIOD}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANLGR"/>
+										<table:template>
+											<Text text="{ICADOCM>ANLGR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANLGR2"/>
+										<table:template>
+											<Text text="{ICADOCM>ANLGR2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SETTLEMENT_RULE"/>
+										<table:template>
+											<Text text="{ICADOCM>SETTLEMENT_RULE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ANLKL"/>
+										<table:template>
+											<Text text="{ICADOCM>ANLKL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KTOGR"/>
+										<table:template>
+											<Text text="{ICADOCM>KTOGR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PANL1"/>
+										<table:template>
+											<Text text="{ICADOCM>PANL1}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PANL2"/>
+										<table:template>
+											<Text text="{ICADOCM>PANL2}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="UBZDT_PN"/>
+										<table:template>
+											<Text text="{ICADOCM>UBZDT_PN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XVABG_PN"/>
+										<table:template>
+											<Text text="{ICADOCM>XVABG_PN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PROZS_PN"/>
+										<table:template>
+											<Text text="{ICADOCM>PROZS_PN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="XMANPROPVAL_PN"/>
+										<table:template>
+											<Text text="{ICADOCM>XMANPROPVAL_PN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACCASTY"/>
+										<table:template>
+											<Text text="{ICADOCM>ACCASTY}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUFNR"/>
+										<table:template>
+											<Text text="{ICADOCM>AUFNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUTYP"/>
+										<table:template>
+											<Text text="{ICADOCM>AUTYP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PS_PSP_PNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PS_PSP_PNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PS_POSID"/>
+										<table:template>
+											<Text text="{ICADOCM>PS_POSID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PS_PSPID"/>
+										<table:template>
+											<Text text="{ICADOCM>PS_PSPID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="NPLNR"/>
+										<table:template>
+											<Text text="{ICADOCM>NPLNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PRZNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PRZNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PPS_PSP_PNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PPS_PSP_PNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PPS_POSID"/>
+										<table:template>
+											<Text text="{ICADOCM>PPS_POSID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PPS_PSPID"/>
+										<table:template>
+											<Text text="{ICADOCM>PPS_PSPID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PNPLNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PNPLNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PPRZNR"/>
+										<table:template>
+											<Text text="{ICADOCM>PPRZNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BUKRS_SENDER"/>
+										<table:template>
+											<Text text="{ICADOCM>BUKRS_SENDER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="RACCT_SENDER"/>
+										<table:template>
+											<Text text="{ICADOCM>RACCT_SENDER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACCAS_SENDER"/>
+										<table:template>
+											<Text text="{ICADOCM>ACCAS_SENDER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACCASTY_SENDER"/>
+										<table:template>
+											<Text text="{ICADOCM>ACCASTY_SENDER}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ARBID"/>
+										<table:template>
+											<Text text="{ICADOCM>ARBID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VORNR"/>
+										<table:template>
+											<Text text="{ICADOCM>VORNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="AUFPS"/>
+										<table:template>
+											<Text text="{ICADOCM>AUFPS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="UVORN"/>
+										<table:template>
+											<Text text="{ICADOCM>UVORN}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="EQUNR"/>
+										<table:template>
+											<Text text="{ICADOCM>EQUNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="TPLNR"/>
+										<table:template>
+											<Text text="{ICADOCM>TPLNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ISTRU"/>
+										<table:template>
+											<Text text="{ICADOCM>ISTRU}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ILART"/>
+										<table:template>
+											<Text text="{ICADOCM>ILART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PLKNZ"/>
+										<table:template>
+											<Text text="{ICADOCM>PLKNZ}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ARTPR"/>
+										<table:template>
+											<Text text="{ICADOCM>ARTPR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PRIOK"/>
+										<table:template>
+											<Text text="{ICADOCM>PRIOK}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MAUFNR"/>
+										<table:template>
+											<Text text="{ICADOCM>MAUFNR}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MATKL_MM"/>
+										<table:template>
+											<Text text="{ICADOCM>MATKL_MM}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="PLANNED_PARTS_WORK"/>
+										<table:template>
+											<Text text="{ICADOCM>PLANNED_PARTS_WORK}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="FKART"/>
+										<table:template>
+											<Text text="{ICADOCM>FKART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VKORG"/>
+										<table:template>
+											<Text text="{ICADOCM>VKORG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="VTWEG"/>
+										<table:template>
+											<Text text="{ICADOCM>VTWEG}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="SPART"/>
+										<table:template>
+											<Text text="{ICADOCM>SPART}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MATNR_COPA"/>
+										<table:template>
+											<Text text="{ICADOCM>MATNR_COPA}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="MATKL"/>
+										<table:template>
+											<Text text="{ICADOCM>MATKL}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KDGRP"/>
+										<table:template>
+											<Text text="{ICADOCM>KDGRP}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="LAND1"/>
+										<table:template>
+											<Text text="{ICADOCM>LAND1}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BRSCH"/>
+										<table:template>
+											<Text text="{ICADOCM>BRSCH}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="BZIRK"/>
+										<table:template>
+											<Text text="{ICADOCM>BZIRK}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KUNRE"/>
+										<table:template>
+											<Text text="{ICADOCM>KUNRE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KUNWE"/>
+										<table:template>
+											<Text text="{ICADOCM>KUNWE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="KONZS"/>
+										<table:template>
+											<Text text="{ICADOCM>KONZS}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACROBJTYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>ACROBJTYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACROBJ_ID"/>
+										<table:template>
+											<Text text="{ICADOCM>ACROBJ_ID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACRSOBJ_ID"/>
+										<table:template>
+											<Text text="{ICADOCM>ACRSOBJ_ID}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACRITMTYPE"/>
+										<table:template>
+											<Text text="{ICADOCM>ACRITMTYPE}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+									<table:Column width="120px">
+										<Label text="ACRVALDAT"/>
+										<table:template>
+											<Text text="{ICADOCM>ACRVALDAT}" wrapping="false"/>
+										</table:template>
+									</table:Column>
+								</table:columns>
+							</table:Table>
+						</IconTabFilter>
+						<IconTabFilter text="Code Mode">
+							<TextArea cols="130" rows="30" id="trJson" visible="true"></TextArea>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -161,9 +161,23 @@ sap.ui.define([
 				MessageToast.show(exceptionText);
 			}
 	};
+	var fnGetDefaultViewPath = function(nodes){
+		let sPath = null;
+		for(let item of nodes){
+			if(item.expand){
+				sPath = item.name ;
+				break;
+			}
+			if(item.child){
+				sPath = fnGetDefaultViewPath(item.child);
+			}
+		}
+		return sPath;
+	};
 
 	return {
 		buildRoute: fnBuildRouteByTreeData,
+		getDefaultPath:fnGetDefaultViewPath,
 		copyStringToClipboard:_copyStringToClipboard
 	};
 });

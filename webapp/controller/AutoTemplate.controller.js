@@ -1,10 +1,12 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
+	"ZHELI_UI5_CONTROLS/controller/BaseController",
 	"sap/m/MessageToast",
 	"ZHELI_UI5_CONTROLS/util"
 ], function(Controller, MessageToast, util) {
 	"use strict";
 	var iFixedRows = 3;
+	var iTempData =
+		"[\"MeetupID\",\"Title\",\"EventDate\",\"Description\",\"HostedBy\",\"ContactPhone\",\"Address\",\"Country\",\"Latitude\",\"Longitude\",\"HostedById\",\"Location\"]";
 
 	return Controller.extend("ZHELI_UI5_CONTROLS.controller.AutoTemplate", {
 
@@ -13,9 +15,10 @@ sap.ui.define([
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 		 * @memberOf ZHELI_UI5_CONTROLS.view.AutoTemplate
 		 */
-		//	onInit: function() {
-		//
-		//	},
+		onInit: function() {
+			this._addHideMasterButton();
+			this.byId("TDataSource").setValue(iTempData);
+		},
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
@@ -72,6 +75,13 @@ sap.ui.define([
 		onResultSubRows: function() {
 			var oResult = this.byId("TResult");
 			this._subRows(oResult);
+		},
+		onMTableTemplate: function() {
+			var ddic = this._getDataSource();
+			var result = this._getMTableHeader();
+			result += this._getMTableColumns(ddic);
+			result += this._getMTableItems(ddic);
+			this._getResult().setValue(result);
 		},
 		_getResult: function() {
 			return this.byId("TResult");
@@ -140,6 +150,28 @@ sap.ui.define([
 			if (iCountRows > iFixedRows) {
 				oControl.setRows(iCountRows - iFixedRows);
 			}
+		},
+		_getMTableHeader: function() {
+			return "<Table id=\"{Table1}\" alternateRowColors=\"true\" backgroundDesign=\"Transparent\" headerText=\"Header\" mode=\"SingleSelect\" noDataText=\"No Data\" items=\"{TableSet}\" >";
+		},
+		_getMTableColumn: function(Column) {
+			return "<Column> \r\n      <Text text=\"" + Column + "\" />  \r\n  </Column> \r\n";
+		},
+		_getMTableColumns: function(ddic) {
+			var result = "<columns> \r\n";
+			for (var ind in ddic) {
+				result += this._getMTableColumn(ddic[ind]) + " \r\n ";
+			}
+			result += "</columns> \r\n";
+			return result;
+		},
+		_getMTableItems: function(ddic) {
+			var result = "<items>	\r\n <ColumnListItem type=\"Active\" press=\"onPress1\">	\r\n <cells> \r\n";
+			for (var ind in ddic) {
+				result += "<Input value=\"{" + ddic[ind] + "}\"></Input> \r\n";
+			}
+			result += "</cells> \r\n </ColumnListItem> \r\n </items> </Table>\r\n";
+			return result;
 		}
 
 	});

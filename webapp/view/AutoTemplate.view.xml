@@ -16,6 +16,7 @@
 			<OverflowToolbar>
 				<content>
 					<Button text="SmartFilterBar Configure" press="onBuildSmartFilterBarConfigure" icon="sap-icon://filter"></Button>
+					<Button text="M.Table Template" press="onMTableTemplate" icon="sap-icon://table-view"></Button>
 				</content>
 			</OverflowToolbar>
 			<HBox>
@@ -26,14 +27,10 @@
 							<VBox>
 								<Button icon="sap-icon://add" press="onResultAddRows"></Button>
 								<Button icon="sap-icon://less" press="onResultSubRows"></Button>
+								<Button icon="sap-icon://copy" press="onCopy"></Button>
 							</VBox>
 						</HBox>
 					</Panel>
-					<OverflowToolbar>
-						<content>
-							<Button icon="sap-icon://copy" press="onCopy"></Button>
-						</content>
-					</OverflowToolbar>
 				</VBox>
 			</HBox>
 		</content>

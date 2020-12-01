@@ -10,6 +10,12 @@ sap.ui.define([], function() {
 				desc: "Base Input Demo",
 				leaf: true,
 				icon: ""
+			}, {
+				name: "Basic_Button",
+				desc: "Basic Button",
+				leaf: true,
+				icon: "sap-icon://dropdown",
+				expand:true
 			}]
 		}, {
 			name: "UITable",
@@ -21,8 +27,8 @@ sap.ui.define([], function() {
 				desc: "Basic Table",
 				leaf: true
 			}, {
-				name: "Table_M_CURD",
-				desc: "Table_M_CURD",
+				name: "Table_M_Table",
+				desc: "Table_M_Table",
 				leaf: true
 			}]
 		}, {
@@ -69,15 +75,11 @@ sap.ui.define([], function() {
 					icon: "sap-icon://table-view",
 					leaf: true
 				}]
-			}]
-		},{
-			name:"Odata",
-			desc:"Odata",
-			leaf:false,
-			child:[{
-				name:"Odata_CURD_Demo",
-				desc:"Odata_CURD_Demo",
-				leaf:true
+			}, {
+				name: "TreeTable",
+				desc: "TreeTable",
+				icon: "sap-icon://table-view",
+				leaf: true
 			}]
 		}, {
 			name: "Tools",
@@ -90,6 +92,11 @@ sap.ui.define([], function() {
 				icon: "sap-icon://bbyd-dashboard",
 				leaf: true
 
+			},{
+				name:"GenerateCode",
+				desc:"Generate code",
+				icon:"sap-icon://source-code",
+				leaf:true
 			}, {
 				name: "show_stock",
 				desc: "show_stock",
@@ -106,11 +113,6 @@ sap.ui.define([], function() {
 				icon: "sap-icon://action-settings",
 				leaf: true
 			}, {
-				name: "stock_analysis",
-				desc: "stock_analysis",
-				icon: "sap-icon://kpi-corporate-performance",
-				leaf: true
-			}, {
 				name: "WebSocket_Basic",
 				desc: "WebSocket_Basic",
 				icon: "sap-icon://meeting-room",
@@ -119,6 +121,17 @@ sap.ui.define([], function() {
 				name: "stockHelp_Test",
 				desc: "stockHelp_Test",
 				icon: "sap-icon://feed",
+				leaf: true
+			}]
+		}, {
+			name: "OData",
+			desc: "OData",
+			icon: "sap-icon://official-service",
+			leaf: false,
+			child: [{
+				name: "OData_Basic",
+				desc: "OData_Basic",
+				icon: "sap-icon://table-view",
 				leaf: true
 			}]
 		}, {
@@ -133,26 +146,25 @@ sap.ui.define([], function() {
 				leaf: true
 			}]
 		}, {
-			name: "CustControl_Basic",
-			desc: "CustControl_Basic",
-			icon: "sap-icon://customer-financial-fact-sheet",
-			leaf: "false",
-			child: [{
-				name: "CustControl_Basic",
-				desc: "CustControl_Basic",
-				icon: "sap-icon://customer-financial-fact-sheet",
-				leaf: "true"
-			}]
-		}, {
 			name: "Order CURD",
 			desc: "Order CURD",
-			icon: "sap-icon://sales-order",
-			leaf: "false",
+			icon: "sap-icon://popup-window",
+			leaf: false,
 			child: [{
 				name: "OrderCURD",
-				desc: "Order_CURD",
-				icon: "sap-icon://sales-order",
-				leaf: "true"
+				desc: "OrderCURD",
+				icon: "sap-icon://popup-window",
+				leaf: true
+			}]
+		}, {
+			name: "ES6",
+			desc: "ES6",
+			leaf: false,
+			child: [{
+				name: "ES6",
+				desc: "ES6",
+				leaf: true,
+				expand:false
 			}]
 		}]
 

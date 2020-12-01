@@ -5,8 +5,9 @@ sap.ui.define([
 	"ZHELI_UI5_CONTROLS/model/models",
 	"ZHELI_UI5_CONTROLS/util",
 	"ZHELI_UI5_CONTROLS/data/stock_equity",
-	"ZHELI_UI5_CONTROLS/data/stock_favorite"
-], function(UIComponent, Device, JSONModel, models, util, stock_equity, stock_favorite) {
+	"ZHELI_UI5_CONTROLS/data/stock_favorite",
+	"ZHELI_UI5_CONTROLS/model/MasterTree",
+], function(UIComponent, Device, JSONModel, models, util, stock_equity, stock_favorite, MasterTree) {
 	"use strict";
 
 	return UIComponent.extend("ZHELI_UI5_CONTROLS.Component", {
@@ -27,12 +28,14 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+			this.defaultPath = util.getDefaultPath(MasterTree.treeData) || "detail";
 
 			// Parse the current url and display the targets of the route that matches the hash
 			this.getRouter().initialize();
 			this._stock_equity = stock_equity.equity;
 			this._stock_favorite = stock_favorite.favorites;
 			this._getStocks();
+			
 		},
 		_getStocks: function() {
 			var jsonModel = new JSONModel();

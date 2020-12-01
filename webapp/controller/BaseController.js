@@ -9,15 +9,17 @@ sap.ui.define([
 		showError: function(sMessage) {
 			MessageToast.show(sMessage);
 		},
-		navTo:function(target){
+		navTo: function(target) {
 			var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
-			if(oRouter.getTarget(target)){
-				oRouter.navTo(target,{path:"0"});
-			}else{
+			if (oRouter.getTarget(target)) {
+				oRouter.navTo(target, {
+					path: "0"
+				});
+			} else {
 				this.showError("DEMO未完成");
 			}
 		},
-			onHideMaster: function(oEvent) {
+		onHideMaster: function(oEvent) {
 			var oBtn = oEvent.getSource();
 			var sBtnText = oBtn.getText();
 			var oApp = this.getView().getParent().getParent();
@@ -29,10 +31,22 @@ sap.ui.define([
 				oBtn.setText("HideMaster");
 			}
 		},
-		onReload:function(){
+		onReload: function() {
 			window.location.reload();
+		},
+		_addHideMasterButton: function() {
+			var oPage = this.getView().getAggregation("content")[0];
+			var oBar = new sap.m.Toolbar();
+			//var oBar = oPage.getAggregation("subHeader");
+			var oButton = new sap.m.Button({
+				text: "HideMaster",
+				icon: "sap-icon://full-screen"
+			});
+			oButton.attachPress(this.onHideMaster.bind(this));
+			oBar.addAggregation("content", oButton);
+			oPage.insertContent(oBar, 0);
 		}
-		
+
 	});
 
 });
